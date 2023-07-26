@@ -1,4 +1,4 @@
-# Telegram Oath Demo
+# Telegram oauth2 demo
 
 [widget-configuration]<https://core.telegram.org/widgets/login#widget-configuration>
 
