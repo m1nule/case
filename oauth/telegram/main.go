@@ -16,9 +16,9 @@ import (
 )
 
 var (
-	token       = os.Getenv("bot_token")
-	botName     = os.Getenv("bot_name")
-	callbackURL = os.Getenv("bot_callback_url")
+	token       = os.Getenv("TELEGRAM_TOKEN")
+	botName     = os.Getenv("TELEGRAM_NAME")
+	callbackURL = os.Getenv("TELEGRAM_CALLBACK_URL")
 )
 
 //go:embed template
@@ -29,8 +29,8 @@ func main() {
 	templ := template.Must(template.New("").ParseFS(static, "template/*.html"))
 	router.SetHTMLTemplate(templ)
 
-	router.GET("/", handleIndex)
-	router.GET("/tg", handleTelegramOAuthCallback)
+	router.GET("/telegram", handleIndex)
+	router.GET("/oauth2/telegram", handleTelegramOAuthCallback)
 	router.Run(":3000")
 }
 
